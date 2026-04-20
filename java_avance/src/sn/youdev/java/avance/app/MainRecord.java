@@ -11,7 +11,7 @@ public class MainRecord {
         Point point1 = new Point(2, 4);
         Point point2 = new Point(2, 4);
         Note note = new Note(15.5);
-        Etudiant etudiant = new Etudiant(" Awa Ndiaye ", "AWA@ecole.sn");
+        Etudiant etudiant = new Etudiant(" Awa Ndiaye ", "AWA@ecole.sn", new Etudiant.NoteInterne(12));
         Rectangle carre = new Rectangle(5);
         Temperature temperature = Temperature.fromFahrenheit(77);
 

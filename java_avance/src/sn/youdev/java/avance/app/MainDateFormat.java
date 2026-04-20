@@ -8,14 +8,14 @@ import java.util.Locale;
 
 public class MainDateFormat {
     public static void main(String[] args) {
-        LocalDate date = LocalDate.of(2026, 4, 6);
-        LocalDateTime dateHeure = LocalDateTime.of(2026, 4, 6, 8, 30);
+        LocalDate date = LocalDate.now();
+        LocalDateTime dateHeure = LocalDateTime.of(2026, 4, 6,7,0);
         String texteDate = "25/12/2026";
         String texteDateHeure = "25/12/2026 18:45";
 
         DateTimeFormatter formatDate = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         DateTimeFormatter formatDateHeure = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-        DateTimeFormatter formatFr = DateTimeFormatter.ofPattern("EEEE d MMMM yyyy", Locale.FRENCH);
+        DateTimeFormatter formatFr = DateTimeFormatter.ofPattern("EEEE dd MMMM yyyy", Locale.JAPANESE);
         DateTimeFormatter formatUs = DateTimeFormatter.ofPattern("EEEE, MMMM d, yyyy", Locale.US);
         DateTimeFormatter formatLongFr = DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL).withLocale(Locale.FRENCH);
         DateTimeFormatter formatTexteFr = DateTimeFormatter.ofPattern("d MMMM yyyy", Locale.FRENCH);

@@ -12,7 +12,7 @@ import java.util.Objects;
  * 	•	parfois hashCode()
  * 	•	parfois toString()
  */
-class PointClasse {
+public final class PointClasse {
     private final int x;
     private final int y;
 

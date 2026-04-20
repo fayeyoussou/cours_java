@@ -21,6 +21,7 @@ public class MainOptional {
         // ifPresent exécute une action seulement si la valeur existe.
         mentionTexte.ifPresent(mention -> IO.println("Mention trouvée : " + mention.getValeur()));
 
+
         // map transforme la valeur si elle est présente.
         IO.println("Depuis une note : " + mentionNote.map(MentionEnumAvance::getValeur).orElse("Aucune"));
 

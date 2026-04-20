@@ -8,7 +8,11 @@ package sn.youdev.java.avance.model.record;
  *
  * Est-ce que ma classe décrit principalement des valeurs, ou un vrai objet avec beaucoup de comportement ?
  */
-public record Point(int x, int y) {}
+public record Point(int x, int y) {
+    public Point{
+
+    }
+}
 /**
  * Cette seule ligne remplace une grande partie du code précédent.
  *

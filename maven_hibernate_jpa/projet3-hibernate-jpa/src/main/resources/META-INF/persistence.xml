@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    persistence.xml — Configuration JPA/Hibernate
+    Emplacement obligatoire : src/main/resources/META-INF/persistence.xml
+
+    Base de données active : MySQL (port 3307, root/root)
+    Pour un exemple PostgreSQL, voir : persistence-postgres-exemple.xml
+-->
+<persistence version="3.0"
+             xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence
+             https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
+
+    <persistence-unit name="gestion-produits" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <class>sn.cours.model.Categorie</class>
+        <class>sn.cours.model.Produit</class>
+
+        <properties>
+            <!-- Connexion MySQL -->
+            <property name="jakarta.persistence.jdbc.driver"   value="com.mysql.cj.jdbc.Driver"/>
+            <property name="jakarta.persistence.jdbc.url"      value="jdbc:mysql://localhost:3307/gestion_produits?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC"/>
+            <property name="jakarta.persistence.jdbc.user"     value="root"/>
+            <property name="jakarta.persistence.jdbc.password" value="root"/>
+
+            <!-- Hibernate -->
+            <property name="hibernate.dialect"      value="org.hibernate.dialect.MySQLDialect"/>
+            <!-- update : met à jour le schéma sans supprimer les données -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <!-- Affiche le SQL généré par Hibernate dans la console -->
+            <property name="hibernate.show_sql"     value="true"/>
+            <property name="hibernate.format_sql"   value="true"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>

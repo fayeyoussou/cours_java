@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <option name="PARALLEL_COMPILATION_OPTION" value="Enabled" />
+    <annotationProcessing>
+      <profile name="Annotation profile for projet3-hibernate-jpa" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.44/lombok-1.18.44.jar" />
+        </processorPath>
+        <module name="projet3-hibernate-jpa" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

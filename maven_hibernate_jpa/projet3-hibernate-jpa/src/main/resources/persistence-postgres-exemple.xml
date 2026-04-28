@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    persistence-postgres-exemple.xml — Exemple de persistence.xml pour PostgreSQL
+    ==============================================================================
+    Ce fichier est fourni à titre d'exemple uniquement.
+    Le projet utilise MySQL via META-INF/persistence.xml.
+
+    Pour basculer sur PostgreSQL :
+      1. Remplacer mysql-connector-j par le driver PostgreSQL dans pom.xml :
+
+         <dependency>
+             <groupId>org.postgresql</groupId>
+             <artifactId>postgresql</artifactId>
+             <version>42.7.3</version>
+             <scope>runtime</scope>
+         </dependency>
+
+      2. Copier le contenu du bloc <persistence-unit> ci-dessous
+         dans META-INF/persistence.xml en remplaçant l'unité MySQL.
+
+      3. Mettre à jour JPAUtil.java :
+         Persistence.createEntityManagerFactory("gestion-produits-postgres");
+-->
+<persistence version="3.0"
+             xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence
+             https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
+
+    <persistence-unit name="gestion-produits-postgres" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <class>sn.cours.model.Categorie</class>
+        <class>sn.cours.model.Produit</class>
+
+        <properties>
+            <!-- Connexion PostgreSQL -->
+            <property name="jakarta.persistence.jdbc.driver"   value="org.postgresql.Driver"/>
+            <property name="jakarta.persistence.jdbc.url"      value="jdbc:postgresql://localhost:5432/gestion_produits"/>
+            <property name="jakarta.persistence.jdbc.user"     value="owod"/>
+            <property name="jakarta.persistence.jdbc.password" value="owod"/>
+
+            <!-- Hibernate -->
+            <property name="hibernate.dialect"      value="org.hibernate.dialect.PostgreSQLDialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.show_sql"     value="true"/>
+            <property name="hibernate.format_sql"   value="true"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>

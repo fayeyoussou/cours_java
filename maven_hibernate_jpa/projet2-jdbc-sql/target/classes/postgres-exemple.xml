@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    postgres-exemple.xml — Exemple de configuration JDBC pour PostgreSQL
+    =====================================================================
+    Ce fichier est fourni à titre d'exemple uniquement.
+    Il n'est PAS utilisé par le projet (qui utilise MySQL).
+
+    Pour basculer sur PostgreSQL :
+      1. Ajouter le driver PostgreSQL dans pom.xml (remplacer mysql-connector-j) :
+
+         <dependency>
+             <groupId>org.postgresql</groupId>
+             <artifactId>postgresql</artifactId>
+             <version>42.7.3</version>
+         </dependency>
+
+      2. Modifier DatabaseConnection.java avec les valeurs ci-dessous.
+
+    COMPARAISON MySQL vs PostgreSQL (JDBC)
+    ┌──────────────────────┬───────────────────────────────────────────┬────────────────────────────────────────────────┐
+    │ Paramètre            │ MySQL                                     │ PostgreSQL                                     │
+    ├──────────────────────┼───────────────────────────────────────────┼────────────────────────────────────────────────┤
+    │ Driver               │ com.mysql.cj.jdbc.Driver                  │ org.postgresql.Driver                          │
+    │ URL                  │ jdbc:mysql://localhost:3307/gestion_prod.. │ jdbc:postgresql://localhost:5432/gestion_prod.. │
+    │ Utilisateur          │ root                                      │ owod                                           │
+    │ Mot de passe         │ root                                      │ owod                                           │
+    │ AUTO_INCREMENT       │ AUTO_INCREMENT                            │ SERIAL ou GENERATED ALWAYS AS IDENTITY         │
+    │ Port par défaut      │ 3306 (ici 3307)                           │ 5432                                           │
+    └──────────────────────┴───────────────────────────────────────────┴────────────────────────────────────────────────┘
+
+    Valeurs à utiliser dans DatabaseConnection.java pour PostgreSQL :
+
+    URL      = "jdbc:postgresql://localhost:5432/gestion_produits"
+    USER     = "owod"
+    PASSWORD = "owod"
+-->

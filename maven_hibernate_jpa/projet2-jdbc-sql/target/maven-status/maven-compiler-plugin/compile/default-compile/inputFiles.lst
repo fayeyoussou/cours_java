@@ -1,0 +1,11 @@
+/Users/youtech/Desktop/projects/cours_java/maven_hibernate_jpa/projet2-jdbc-sql/src/main/java/sn/cours/Main.java
+/Users/youtech/Desktop/projects/cours_java/maven_hibernate_jpa/projet2-jdbc-sql/src/main/java/sn/cours/db/DatabaseConnection.java
+/Users/youtech/Desktop/projects/cours_java/maven_hibernate_jpa/projet2-jdbc-sql/src/main/java/sn/cours/db/SchemaInitializer.java
+/Users/youtech/Desktop/projects/cours_java/maven_hibernate_jpa/projet2-jdbc-sql/src/main/java/sn/cours/exception/CategorieNotFoundException.java
+/Users/youtech/Desktop/projects/cours_java/maven_hibernate_jpa/projet2-jdbc-sql/src/main/java/sn/cours/exception/MetierException.java
+/Users/youtech/Desktop/projects/cours_java/maven_hibernate_jpa/projet2-jdbc-sql/src/main/java/sn/cours/exception/ProduitNotFoundException.java
+/Users/youtech/Desktop/projects/cours_java/maven_hibernate_jpa/projet2-jdbc-sql/src/main/java/sn/cours/model/Categorie.java
+/Users/youtech/Desktop/projects/cours_java/maven_hibernate_jpa/projet2-jdbc-sql/src/main/java/sn/cours/model/Produit.java
+/Users/youtech/Desktop/projects/cours_java/maven_hibernate_jpa/projet2-jdbc-sql/src/main/java/sn/cours/service/CrudService.java
+/Users/youtech/Desktop/projects/cours_java/maven_hibernate_jpa/projet2-jdbc-sql/src/main/java/sn/cours/service/impl/CategorieServiceSQL.java
+/Users/youtech/Desktop/projects/cours_java/maven_hibernate_jpa/projet2-jdbc-sql/src/main/java/sn/cours/service/impl/ProduitServiceSQL.java

@@ -1,0 +1,8 @@
+sn/cours/model/Module.class
+sn/cours/model/Etudiant.class
+sn/cours/model/Module$ModuleBuilder.class
+sn/cours/util/NumberToLetterUtils.class
+sn/cours/model/EtudiantSansLombok.class
+sn/cours/model/Note.class
+sn/cours/model/Note$NoteBuilder.class
+sn/cours/Main.class

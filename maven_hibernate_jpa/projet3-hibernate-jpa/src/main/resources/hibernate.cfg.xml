@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<!--
+    hibernate.cfg.xml — Configuration alternative à persistence.xml
+    ==================================================================
+    Ce fichier est l'autre façon de configurer Hibernate (sans JPA).
+    On le place dans src/main/resources/.
+
+    Ce projet utilise persistence.xml (MySQL).
+    Ce fichier est fourni à titre pédagogique pour comparer les deux approches.
+
+    Pour utiliser ce fichier à la place de persistence.xml :
+        SessionFactory sf = new Configuration().configure().buildSessionFactory();
+
+    COMPARAISON MySQL vs PostgreSQL
+    ┌──────────────────────┬─────────────────────────────────┬──────────────────────────────────────┐
+    │ Paramètre            │ MySQL                           │ PostgreSQL                           │
+    ├──────────────────────┼─────────────────────────────────┼──────────────────────────────────────┤
+    │ Driver               │ com.mysql.cj.jdbc.Driver        │ org.postgresql.Driver                │
+    │ URL                  │ jdbc:mysql://localhost:3307/... │ jdbc:postgresql://localhost:5432/... │
+    │ Utilisateur          │ root                            │ owod                                 │
+    │ Mot de passe         │ root                            │ owod                                 │
+    │ Dialect              │ MySQLDialect                    │ PostgreSQLDialect                    │
+    │ Port par défaut      │ 3306 (ici 3307)                 │ 5432                                 │
+    │ AUTO_INCREMENT SQL   │ AUTO_INCREMENT                  │ GENERATED ALWAYS AS IDENTITY         │
+    │ Installation         │ serveur MySQL requis            │ serveur PostgreSQL requis            │
+    └──────────────────────┴─────────────────────────────────┴──────────────────────────────────────┘
+-->
+
+<hibernate-configuration>
+
+    <!-- ============================================================
+         CONFIG MYSQL — port 3307, root/root
+         ============================================================ -->
+    <!--
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3307/gestion_produits?useSSL=false&amp;serverTimezone=UTC</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <mapping class="sn.cours.model.Categorie"/>
+        <mapping class="sn.cours.model.Produit"/>
+    </session-factory>
+    -->
+
+
+    <!-- ============================================================
+         CONFIG POSTGRESQL — exemple, port 5432, owod/owod
+         ============================================================ -->
+    <!--
+    <session-factory>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/gestion_produits</property>
+        <property name="hibernate.connection.username">owod</property>
+        <property name="hibernate.connection.password">owod</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <mapping class="sn.cours.model.Categorie"/>
+        <mapping class="sn.cours.model.Produit"/>
+    </session-factory>
+    -->
+
+</hibernate-configuration>

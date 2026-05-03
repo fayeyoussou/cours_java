@@ -1,0 +1,39 @@
+package sn.l2g2.faye.jdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class ConnexionTest {
+
+    private ConnexionTest(){
+        throw new RuntimeException("Cette classe ne peut etre instantie");
+    }
+    private static final String URL =
+        "jdbc:mysql://127.0.0.1:3307/ecole?serverTimezone=UTC&allowPublicKeyRetrieval=true";
+    private static final String USER = "root";
+    private static final String PASS = "root";
+ 
+    public static Connection getConnection() {
+        try {
+
+            return DriverManager.getConnection(URL, USER, PASS);
+        } catch (SQLException e) {
+            System.err.println("Échec de connexion : " + e.getMessage());
+            System.err.println("SQLState : " + e.getSQLState());
+            System.err.println("ErrorCode : " + e.getErrorCode());
+            throw new RuntimeException("Erreur de connexion : " + e.getMessage());
+        }
+    }
+    public static void main(String[] args) {
+        try (Connection conn = getConnection()) {
+            System.out.println("Connecté à MySQL — base : " + conn.getCatalog());
+            System.out.println("Pilote : " + conn.getMetaData().getDriverName());
+        } catch (SQLException e) {
+            System.err.println("Échec de connexion : " + e.getMessage());
+            System.err.println("SQLState : " + e.getSQLState());
+            System.err.println("ErrorCode : " + e.getErrorCode());
+        }
+    }
+
+}

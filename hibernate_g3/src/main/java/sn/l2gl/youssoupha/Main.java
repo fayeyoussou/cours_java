@@ -1,0 +1,14 @@
+package sn.l2gl.youssoupha;
+
+import sn.l2gl.youssoupha.dao.VehiculeDao;
+import sn.l2gl.youssoupha.model.Vehicule;
+
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+public class Main {
+    public static void main(String[] args) {
+        VehiculeDao vehiculeDao = new VehiculeDao();
+        vehiculeDao.listerTous();
+//        vehiculeDao.inserer(new Vehicule(1l,"AO3","TERA"));
+    }
+}

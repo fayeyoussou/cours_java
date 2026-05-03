@@ -1,5 +1,6 @@
 package sn.youdev.jdbc.dao;
 
+import sn.youdev.jdbc.interfaces.IEtudiantDao;
 import sn.youdev.jdbc.model.Etudiant;
 
 import java.sql.*;
@@ -7,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class EtudiantDao {
+public class EtudiantDao implements IEtudiantDao {
 
     private final Connection conn;
 

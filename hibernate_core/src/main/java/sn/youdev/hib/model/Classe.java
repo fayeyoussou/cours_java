@@ -17,8 +17,8 @@ import java.util.List;
 public class Classe {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
+    @Column(length = 20)
     private String code;
 
     @EqualsAndHashCode.Include

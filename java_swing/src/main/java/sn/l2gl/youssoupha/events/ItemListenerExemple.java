@@ -18,7 +18,7 @@ public class ItemListenerExemple {
         JFrame fenetre = new JFrame("ItemListener");
         fenetre.setSize(520, 320);
         fenetre.setLocationRelativeTo(null);
-        fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        fenetre.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         fenetre.setLayout(new BorderLayout(10, 10));
 
         JPanel panelTop = new JPanel(new GridLayout(2, 1, 10, 10));

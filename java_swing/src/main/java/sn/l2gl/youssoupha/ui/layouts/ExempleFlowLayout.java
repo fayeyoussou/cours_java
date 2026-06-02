@@ -1,4 +1,4 @@
-package sn.l2gl.youssoupha.views.layouts;
+package sn.l2gl.youssoupha.ui.layouts;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,11 +18,15 @@ public class ExempleFlowLayout {
     }
 
     public static JPanel creerPanel() {
-        JPanel panel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 10));
+        JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
         panel.add(creerPetitPanel("1", Color.RED));
         panel.add(creerPetitPanel("2", Color.BLUE));
         panel.add(creerPetitPanel("3", Color.GREEN));
         panel.add(creerPetitPanel("4", Color.ORANGE));
+        panel.add(creerPetitPanel("4", Color.GRAY));
+        panel.add(creerPetitPanel("4", Color.cyan));
+        panel.add(creerPetitPanel("4", Color.ORANGE));
+
         return panel;
     }
 

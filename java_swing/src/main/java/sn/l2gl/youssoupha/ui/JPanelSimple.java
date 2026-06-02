@@ -1,4 +1,4 @@
-package sn.l2gl.youssoupha.views;
+package sn.l2gl.youssoupha.ui;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,10 +10,10 @@ public class JPanelSimple {
 
     public static void afficher() {
         JFrame fenetre = new JFrame("JPanel simple");
-        fenetre.setSize(500, 300);
+        fenetre.setSize(900, 900);
         fenetre.setLocationRelativeTo(null);
         fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        fenetre.setLayout(new GridLayout(2, 2));
+        fenetre.setLayout(new GridLayout(3, 3));
 
         JPanel panel1 = new JPanel();
         panel1.setBackground(Color.BLUE);
@@ -26,11 +26,19 @@ public class JPanelSimple {
 
         JPanel panel4 = new JPanel();
         panel4.setBackground(Color.PINK);
+        JPanel panel5 = new JPanel();
+        panel3.setBackground(Color.CYAN);
+
+        JPanel panel6 = new JPanel();
+        panel4.setBackground(Color.white);
 
         fenetre.add(panel1);
         fenetre.add(panel2);
+        fenetre.add(panel5);
         fenetre.add(panel3);
         fenetre.add(panel4);
+        fenetre.add(panel6);
+
         fenetre.setVisible(true);
     }
 }

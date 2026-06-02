@@ -1,4 +1,4 @@
-package sn.l2gl.youssoupha.views;
+package sn.l2gl.youssoupha.ui;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,7 +18,7 @@ public class JLabelEtJbutton {
         JLabel labelTexte = new JLabel("Label avec texte");
         labelTexte.setHorizontalAlignment(SwingConstants.CENTER);
 
-        javax.swing.JButton bouton = new javax.swing.JButton("Mon bouton");
+        JButton bouton = new JButton("Mon bouton");
         JPanel panelBouton = new JPanel(new FlowLayout(FlowLayout.CENTER));
         panelBouton.add(bouton);
 
@@ -30,6 +30,8 @@ public class JLabelEtJbutton {
         labelCouleur.setOpaque(true);
         labelCouleur.setBackground(Color.decode("#00AEEF"));
         labelCouleur.setHorizontalAlignment(SwingConstants.CENTER);
+        labelCouleur.setVerticalAlignment(SwingConstants.BOTTOM);
+
 
         fenetre.add(labelTexte);
         fenetre.add(panelBouton);

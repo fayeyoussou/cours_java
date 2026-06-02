@@ -1,6 +1,6 @@
-package sn.l2gl.youssoupha.views;
+package sn.l2gl.youssoupha.ui;
 
-import sn.l2gl.youssoupha.views.layouts.*;
+import sn.l2gl.youssoupha.ui.layouts.*;
 
 import javax.swing.*;
 

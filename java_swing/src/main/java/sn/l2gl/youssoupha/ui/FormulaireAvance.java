@@ -1,11 +1,13 @@
-package sn.l2gl.youssoupha.views;
+package sn.l2gl.youssoupha.ui;
+
+import sn.l2gl.youssoupha.enums.Pays;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Arrays;
 
 public class FormulaireAvance {
     private FormulaireAvance() {
-        /* This utility class should not be instantiated */
     }
 
     public static void afficher() {
@@ -19,14 +21,14 @@ public class FormulaireAvance {
 
         JTextField champNom = new JTextField();
 
-        JSpinner spinnerAge = new JSpinner(new SpinnerNumberModel(18, 0, 100, 1));
+        JSpinner spinnerAge = new JSpinner(new SpinnerNumberModel(1000, 0, 1000000, 5));
 
         JSlider sliderNiveau = new JSlider(0, 100, 50);
         sliderNiveau.setPaintTicks(true);
         sliderNiveau.setPaintLabels(true);
         sliderNiveau.setMajorTickSpacing(5);
 
-        JComboBox<String> comboPays = new JComboBox<>(new String[]{"Sénégal", "France", "Canada", "Maroc"});
+        JComboBox<String> comboPays = new JComboBox<>(Arrays.stream(Pays.values()).map(Enum::name).toArray(String[]::new));
 
         JList<String> listeLangages = new JList<>(new String[]{"Java", "Python", "JavaScript", "PHP"});
 
@@ -37,7 +39,7 @@ public class FormulaireAvance {
         panel.add(new JLabel("Nom :"));
         panel.add(champNom);
 
-        panel.add(new JLabel("Age :"));
+        panel.add(new JLabel("Solde :"));
         panel.add(spinnerAge);
 
         panel.add(new JLabel("Niveau :"));

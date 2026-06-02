@@ -1,4 +1,4 @@
-package sn.l2gl.youssoupha.views;
+package sn.l2gl.youssoupha.ui;
 
 import javax.swing.*;
 
@@ -7,7 +7,7 @@ public class PremierFenetreSwing {
         SwingUtilities.invokeLater(() -> {
             JFrame fenetre = new JFrame("Ma première fenêtre");
 
-            fenetre.setSize(600, 400);
+            fenetre.setSize(900, 900);
             fenetre.setLocationRelativeTo(null); // centrée
             fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

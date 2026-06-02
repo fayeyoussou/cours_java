@@ -1,4 +1,4 @@
-package sn.l2gl.youssoupha.views;
+package sn.l2gl.youssoupha.ui;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,7 +16,7 @@ public class MethodUtilPremierFenetre {
         fenetre.setSize(800, 600);
         fenetre.setMinimumSize(new Dimension(400, 300));
         fenetre.setLocationRelativeTo(null);
-        // fenetre.setExtendedState(JFrame.MAXIMIZED_BOTH); // plein écran
+         fenetre.setExtendedState(JFrame.MAXIMIZED_BOTH); // plein écran
 
         // Comportement à la fermeture
         fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

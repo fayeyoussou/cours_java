@@ -1,4 +1,4 @@
-package sn.l2gl.youssoupha.views.layouts;
+package sn.l2gl.youssoupha.ui.layouts;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,7 +19,7 @@ public class ExempleBorderLayout {
 
     public static JPanel creerPanel() {
         JPanel panel = new JPanel(new BorderLayout(5, 5));
-        panel.add(creerZone("NORTH", Color.RED), BorderLayout.NORTH);
+        panel.add(creerZone("NORTH", Color.cyan), BorderLayout.NORTH);
         panel.add(creerZone("SOUTH", Color.BLUE), BorderLayout.SOUTH);
         panel.add(creerZone("WEST", Color.GREEN), BorderLayout.WEST);
         panel.add(creerZone("EAST", Color.ORANGE), BorderLayout.EAST);

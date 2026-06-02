@@ -1,10 +1,10 @@
 package sn.l2gl.youssoupha;
 
-import sn.l2gl.youssoupha.views.InterfaceFinaleEtudiant;
+import sn.l2gl.youssoupha.events.ActionListenerExemple;
+import sn.l2gl.youssoupha.ui.*;
 
 public class Main {
     public static void main(String[] args) {
-//        PremierFenetreSwing.afficher();
-        InterfaceFinaleEtudiant.afficher();
+        ActionListenerExemple.afficher();
     }
 }

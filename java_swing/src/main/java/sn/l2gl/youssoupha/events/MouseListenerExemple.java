@@ -106,8 +106,21 @@ public class MouseListenerExemple {
         panelBas.add(labelPosition, BorderLayout.NORTH);
         panelBas.add(new JScrollPane(zoneLog), BorderLayout.CENTER);
 
+        JTextArea zoneNote = new JTextArea(
+                "À retenir :\n" +
+                "• mouseClicked  → après pressed + released — getClickCount() pour double-clic\n" +
+                "• mouseEntered / mouseExited → hover effect (changer couleur, icône…)\n" +
+                "• SwingUtilities.isRightMouseButton(e) → détecter le clic droit pour un menu contextuel\n" +
+                "• mouseMoved (sans clic) et mouseDragged (avec clic) → MouseMotionListener\n" +
+                "• Utiliser MouseAdapter pour n'implémenter que les méthodes utiles"
+        );
+        zoneNote.setEditable(false);
+        zoneNote.setBackground(Color.decode("#F5F5F5"));
+        zoneNote.setFont(new Font("Monospaced", Font.PLAIN, 11));
+
         fenetre.add(zoneDessin, BorderLayout.NORTH);
         fenetre.add(panelBas, BorderLayout.CENTER);
+        fenetre.add(zoneNote, BorderLayout.SOUTH);
         fenetre.setVisible(true);
     }
 }

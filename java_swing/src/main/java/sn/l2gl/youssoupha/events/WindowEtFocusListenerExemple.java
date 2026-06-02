@@ -106,8 +106,20 @@ public class WindowEtFocusListenerExemple {
             }
         });
 
+        JTextArea zoneNote = new JTextArea(
+                "À retenir :\n" +
+                "• windowClosing  → clic sur la croix — utiliser DO_NOTHING_ON_CLOSE + WindowAdapter pour contrôler\n" +
+                "• windowOpened   → déclenché une seule fois à la première apparition de la fenêtre\n" +
+                "• focusGained    → composant reçoit le focus (Tab, clic)\n" +
+                "• focusLost      → composant perd le focus — idéal pour valider un champ à la sortie\n" +
+                "• Utiliser WindowAdapter / FocusAdapter pour n'implémenter que les méthodes nécessaires"
+        );
+        zoneNote.setEditable(false);
+        zoneNote.setBackground(Color.decode("#F5F5F5"));
+        zoneNote.setFont(new Font("Monospaced", Font.PLAIN, 11));
+
         fenetre.add(panelFormulaire, BorderLayout.CENTER);
-        fenetre.add(new JLabel("  Fermez la fenêtre pour voir la confirmation de WindowListener"), BorderLayout.SOUTH);
+        fenetre.add(zoneNote, BorderLayout.SOUTH);
         fenetre.setVisible(true);
     }
 }

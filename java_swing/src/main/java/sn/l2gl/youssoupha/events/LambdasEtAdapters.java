@@ -20,7 +20,7 @@ public class LambdasEtAdapters {
         fenetre.setSize(700, 500);
         fenetre.setLocationRelativeTo(null);
         fenetre.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-        fenetre.setLayout(new GridLayout(2, 1, 10, 10));
+        fenetre.setLayout(new BorderLayout(0, 0));
 
         // --- Section 1 : Lambda vs Classe anonyme ---
         JPanel panelLambda = new JPanel(new FlowLayout(FlowLayout.LEFT, 20, 15));
@@ -107,8 +107,23 @@ public class LambdasEtAdapters {
         panelAdapter.add(panelZone, BorderLayout.CENTER);
         panelAdapter.add(labelAdapterResult, BorderLayout.SOUTH);
 
-        fenetre.add(panelLambda);
-        fenetre.add(panelAdapter);
+        JTextArea zoneNote = new JTextArea(
+                "À retenir :\n" +
+                "• Lambda utilisable uniquement avec une interface fonctionnelle (une seule méthode abstraite)\n" +
+                "• ActionListener, ItemListener, ChangeListener → 1 méthode → lambda possible\n" +
+                "• MouseListener, KeyListener, WindowListener → plusieurs méthodes → utiliser un Adapter\n" +
+                "• MouseAdapter, KeyAdapter, WindowAdapter, FocusAdapter → n'override que les méthodes utiles"
+        );
+        zoneNote.setEditable(false);
+        zoneNote.setBackground(Color.decode("#F5F5F5"));
+        zoneNote.setFont(new Font("Monospaced", Font.PLAIN, 11));
+
+        JPanel panelPrincipal = new JPanel(new GridLayout(2, 1, 0, 5));
+        panelPrincipal.add(panelLambda);
+        panelPrincipal.add(panelAdapter);
+
+        fenetre.add(panelPrincipal, BorderLayout.CENTER);
+        fenetre.add(zoneNote, BorderLayout.SOUTH);
         fenetre.setVisible(true);
     }
 }

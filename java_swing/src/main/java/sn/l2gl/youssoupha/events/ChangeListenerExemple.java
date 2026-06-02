@@ -81,8 +81,24 @@ public class ChangeListenerExemple {
             labelOnglet.setText("Onglet actif : " + i + " — " + onglets.getTitleAt(i));
         });
 
+        JTextArea zoneNote = new JTextArea(
+                "À retenir :\n" +
+                "• ChangeListener : une seule méthode stateChanged() — compatible avec les lambdas\n" +
+                "• JSlider : getValueIsAdjusting() = true pendant le glissement, false quand relâché\n" +
+                "• Sauvegarder la valeur uniquement quand getValueIsAdjusting() = false\n" +
+                "• JTabbedPane : getSelectedIndex() pour charger le contenu à la demande (lazy loading)\n" +
+                "• Fonctionne aussi sur : JProgressBar, ButtonModel"
+        );
+        zoneNote.setEditable(false);
+        zoneNote.setBackground(Color.decode("#F5F5F5"));
+        zoneNote.setFont(new Font("Monospaced", Font.PLAIN, 11));
+
+        JPanel panelSud = new JPanel(new BorderLayout(0, 2));
+        panelSud.add(labelOnglet, BorderLayout.NORTH);
+        panelSud.add(zoneNote, BorderLayout.CENTER);
+
         fenetre.add(onglets, BorderLayout.CENTER);
-        fenetre.add(labelOnglet, BorderLayout.SOUTH);
+        fenetre.add(panelSud, BorderLayout.SOUTH);
         fenetre.setVisible(true);
     }
 }

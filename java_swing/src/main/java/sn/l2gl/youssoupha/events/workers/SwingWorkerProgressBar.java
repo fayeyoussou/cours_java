@@ -19,7 +19,7 @@ public class SwingWorkerProgressBar {
         fenetre.setSize(560, 350);
         fenetre.setLocationRelativeTo(null);
         fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        fenetre.setLayout(new GridLayout(3, 1, 0, 0));
+        fenetre.setLayout(new BorderLayout(0, 5));
 
         // --- Mode déterminé : progression connue (0..100%) ---
         JPanel panelDet = new JPanel(new FlowLayout(FlowLayout.LEFT, 15, 15));
@@ -110,9 +110,23 @@ public class SwingWorkerProgressBar {
         panelIndet.add(btnIndet);
         panelIndet.add(lbIndet);
 
-        fenetre.add(panelDet);
-        fenetre.add(panelIndet);
-        fenetre.add(new JLabel("  Mode indéterminé : appels réseau, BDD — mode déterminé : import de fichier, traitement batch", SwingConstants.LEFT));
+        JTextArea zoneNote = new JTextArea(
+                "À retenir :\n" +
+                "• setIndeterminate(true) → animation va-et-vient pour les tâches de durée inconnue\n" +
+                "• setProgress(0..100) dans doInBackground() → déclenche PropertyChangeEvent \"progress\"\n" +
+                "• PropertyChangeListener → connecter le worker à la JProgressBar depuis l'EDT\n" +
+                "• setStringPainted(true) → affiche un texte sur la barre (par défaut : le pourcentage)"
+        );
+        zoneNote.setEditable(false);
+        zoneNote.setBackground(Color.decode("#F5F5F5"));
+        zoneNote.setFont(new Font("Monospaced", Font.PLAIN, 11));
+
+        JPanel panelBarres = new JPanel(new GridLayout(2, 1, 0, 5));
+        panelBarres.add(panelDet);
+        panelBarres.add(panelIndet);
+
+        fenetre.add(panelBarres, BorderLayout.CENTER);
+        fenetre.add(zoneNote, BorderLayout.SOUTH);
         fenetre.setVisible(true);
     }
 }

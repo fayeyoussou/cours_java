@@ -112,8 +112,20 @@ public class ChargerDepuisBDD {
         JSplitPane split = new JSplitPane(JSplitPane.VERTICAL_SPLIT, new JScrollPane(table), zonePatternJDBC);
         split.setResizeWeight(0.55);
 
+        JTextArea zoneNote = new JTextArea(
+                "À retenir :\n" +
+                "• La connexion JDBC (DriverManager.getConnection) doit s'exécuter dans doInBackground()\n" +
+                "• Toujours utiliser try-with-resources pour Connection, PreparedStatement et ResultSet\n" +
+                "• modele.setRowCount(0) avant d'ajouter des lignes → évite les doublons au rechargement\n" +
+                "• get() dans done() peut lever ExecutionException → toujours entourer d'un try/catch"
+        );
+        zoneNote.setEditable(false);
+        zoneNote.setBackground(Color.decode("#F5F5F5"));
+        zoneNote.setFont(new Font("Monospaced", Font.PLAIN, 11));
+
         fenetre.add(panelHaut, BorderLayout.NORTH);
         fenetre.add(split, BorderLayout.CENTER);
+        fenetre.add(zoneNote, BorderLayout.SOUTH);
         fenetre.setVisible(true);
     }
 

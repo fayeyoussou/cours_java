@@ -109,8 +109,20 @@ public class SwingWorkerPublishProcess {
         panelHaut.add(barre, BorderLayout.CENTER);
         panelHaut.add(labelEtat, BorderLayout.SOUTH);
 
+        JTextArea zoneNote = new JTextArea(
+                "À retenir :\n" +
+                "• publish(valeurs) → envoie des résultats intermédiaires depuis doInBackground() vers process()\n" +
+                "• process(chunks)  → s'exécute sur l'EDT — Swing regroupe les appels publish() automatiquement\n" +
+                "• setProgress(0..100) → déclenche PropertyChangeEvent \"progress\" sur l'EDT\n" +
+                "• PropertyChangeListener → connecter setProgress() du worker à une JProgressBar"
+        );
+        zoneNote.setEditable(false);
+        zoneNote.setBackground(Color.decode("#F5F5F5"));
+        zoneNote.setFont(new Font("Monospaced", Font.PLAIN, 11));
+
         fenetre.add(panelHaut, BorderLayout.NORTH);
         fenetre.add(new JScrollPane(table), BorderLayout.CENTER);
+        fenetre.add(zoneNote, BorderLayout.SOUTH);
         fenetre.setVisible(true);
     }
 }

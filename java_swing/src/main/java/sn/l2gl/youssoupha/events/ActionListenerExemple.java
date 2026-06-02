@@ -71,9 +71,20 @@ public class ActionListenerExemple {
         menuBar.add(menuFichier);
 
         fenetre.setJMenuBar(menuBar);
+        JTextArea zoneNote = new JTextArea(
+                "À retenir :\n" +
+                "• Fonctionne sur : JButton, JMenuItem, JTextField (Enter), JComboBox, JRadioButton, Timer\n" +
+                "• e.getSource()        → composant ayant déclenché l'événement\n" +
+                "• e.getActionCommand() → texte associé (souvent le label du bouton)\n" +
+                "• Interface fonctionnelle (1 méthode) → remplaçable par une lambda"
+        );
+        zoneNote.setEditable(false);
+        zoneNote.setBackground(Color.decode("#F5F5F5"));
+        zoneNote.setFont(new Font("Monospaced", Font.PLAIN, 11));
+
         fenetre.add(panelSaisie, BorderLayout.NORTH);
         fenetre.add(new JScrollPane(zoneLog), BorderLayout.CENTER);
-        fenetre.add(new JLabel("  Composants compatibles : JButton, JMenuItem, JTextField (Entrée), JComboBox, JRadioButton"), BorderLayout.SOUTH);
+        fenetre.add(zoneNote, BorderLayout.SOUTH);
         fenetre.setVisible(true);
     }
 }

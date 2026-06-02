@@ -91,9 +91,21 @@ public class ListSelectionListenerExemple {
         panelListe.add(new JScrollPane(listeLangages), BorderLayout.CENTER);
         panelListe.add(labelSelection, BorderLayout.SOUTH);
 
+        JTextArea zoneNote = new JTextArea(
+                "À retenir :\n" +
+                "• Branché sur getSelectionModel() — pas sur la JTable ou JList directement\n" +
+                "• getValueIsAdjusting() = true pendant la sélection → toujours vérifier avant d'agir\n" +
+                "• table.getSelectedRow() retourne -1 si aucune ligne n'est sélectionnée\n" +
+                "• table.convertRowIndexToModel(row) → convertir indice vue → modèle quand le tri est actif"
+        );
+        zoneNote.setEditable(false);
+        zoneNote.setBackground(Color.decode("#F5F5F5"));
+        zoneNote.setFont(new Font("Monospaced", Font.PLAIN, 11));
+
         fenetre.add(new JScrollPane(table), BorderLayout.CENTER);
         fenetre.add(panelDetail, BorderLayout.EAST);
         fenetre.add(panelListe, BorderLayout.WEST);
+        fenetre.add(zoneNote, BorderLayout.SOUTH);
         fenetre.setVisible(true);
     }
 }

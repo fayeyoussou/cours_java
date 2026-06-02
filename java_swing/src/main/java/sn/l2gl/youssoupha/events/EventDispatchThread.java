@@ -73,9 +73,12 @@ public class EventDispatchThread {
             panelBoutons.add(boutonVerif);
 
             JTextArea zoneRegle = new JTextArea(
-                    "invokeLater(r)   → planifie r sur l'EDT et retourne immédiatement (recommandé)\n" +
-                    "invokeAndWait(r) → planifie r et BLOQUE jusqu'à exécution (ne jamais appeler depuis l'EDT)\n" +
-                    "Tous les listeners Swing s'exécutent déjà sur l'EDT — pas besoin d'invokeLater dans un ActionListener"
+                    "À retenir :\n" +
+                    "• Toute création et modification de composants Swing doit se faire sur l'EDT\n" +
+                    "• invokeLater(r)   → planifie r sur l'EDT et retourne immédiatement (recommandé)\n" +
+                    "• invokeAndWait(r) → planifie r et BLOQUE jusqu'à exécution (ne jamais appeler depuis l'EDT)\n" +
+                    "• Tous les listeners s'exécutent déjà sur l'EDT — pas besoin d'invokeLater dans un ActionListener\n" +
+                    "• isEventDispatchThread() → vérifier si le code courant tourne sur l'EDT (utile en débogage)"
             );
             zoneRegle.setEditable(false);
             zoneRegle.setBackground(Color.decode("#F5F5F5"));

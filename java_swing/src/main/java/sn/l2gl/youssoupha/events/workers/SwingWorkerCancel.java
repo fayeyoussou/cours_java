@@ -100,9 +100,11 @@ public class SwingWorkerCancel {
         panelBoutons.add(btnAnnuler);
 
         JTextArea zoneNote = new JTextArea(
-                "cancel(true)   → interrompt le thread si possible (mayInterruptIfRunning)\n" +
-                "isCancelled()  → à vérifier dans la boucle de doInBackground() pour sortir proprement\n" +
-                "done()         → appelé dans tous les cas — succès, annulation ou exception"
+                "À retenir :\n" +
+                "• cancel(true)  → interrompt le thread du worker (mayInterruptIfRunning)\n" +
+                "• isCancelled() → vérifier dans la boucle de doInBackground() pour sortir proprement\n" +
+                "• done()        → appelé dans tous les cas : succès, annulation ou exception\n" +
+                "• Dans done(), tester isCancelled() pour distinguer la fin normale de l'annulation"
         );
         zoneNote.setEditable(false);
         zoneNote.setBackground(Color.decode("#F5F5F5"));

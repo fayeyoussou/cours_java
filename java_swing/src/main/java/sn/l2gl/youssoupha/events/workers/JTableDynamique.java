@@ -161,9 +161,22 @@ public class JTableDynamique {
             spinnerNote.setValue(modele.getValueAt(mr, 3));
         });
 
+        JTextArea zoneNote = new JTextArea(
+                "À retenir :\n" +
+                "• addRow(), setValueAt(), removeRow(), setRowCount(0) → opérations de base sur DefaultTableModel\n" +
+                "• Toujours convertir l'indice avant de modifier : table.convertRowIndexToModel(row)\n" +
+                "• setRowCount(0) vide la table sans détruire la structure des colonnes\n" +
+                "• TableRowSorter : tri par clic en-tête + RowFilter pour filtrer les lignes visibles\n" +
+                "• Toutes les modifications du DefaultTableModel doivent se faire sur l'EDT"
+        );
+        zoneNote.setEditable(false);
+        zoneNote.setBackground(Color.decode("#F5F5F5"));
+        zoneNote.setFont(new Font("Monospaced", Font.PLAIN, 11));
+
         JPanel panelSud = new JPanel(new BorderLayout());
         panelSud.add(panelAjout, BorderLayout.NORTH);
-        panelSud.add(panelRecherche, BorderLayout.SOUTH);
+        panelSud.add(panelRecherche, BorderLayout.CENTER);
+        panelSud.add(zoneNote, BorderLayout.SOUTH);
 
         fenetre.add(new JScrollPane(table), BorderLayout.CENTER);
         fenetre.add(panelSud, BorderLayout.SOUTH);

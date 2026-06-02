@@ -80,11 +80,11 @@ public class SwingWorkerSimple {
         });
 
         JTextArea zoneExplication = new JTextArea(
-                "Cycle de vie du SwingWorker :\n" +
-                "  1. execute()         → démarre la tâche, retourne immédiatement\n" +
-                "  2. doInBackground()  → s'exécute hors EDT (BDD, API, calcul…)\n" +
-                "  3. done()            → s'exécute sur l'EDT (mise à jour de l'UI)\n\n" +
-                "Toujours entourer get() d'un try/catch dans done() — il peut lever ExecutionException."
+                "À retenir :\n" +
+                "• execute()        → démarre la tâche, retourne immédiatement (non bloquant)\n" +
+                "• doInBackground() → s'exécute HORS EDT — ne jamais modifier de composants Swing ici\n" +
+                "• done()           → s'exécute sur l'EDT — modifications de l'UI autorisées\n" +
+                "• get()            → récupère la valeur de doInBackground() — toujours dans un try/catch (ExecutionException)"
         );
         zoneExplication.setEditable(false);
         zoneExplication.setBackground(Color.decode("#F5F5F5"));

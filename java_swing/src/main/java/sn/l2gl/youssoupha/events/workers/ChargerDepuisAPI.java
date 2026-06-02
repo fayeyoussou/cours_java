@@ -103,8 +103,20 @@ public class ChargerDepuisAPI {
         JSplitPane split = new JSplitPane(JSplitPane.VERTICAL_SPLIT, new JScrollPane(table), zonePatternHttp);
         split.setResizeWeight(0.5);
 
+        JTextArea zoneNote = new JTextArea(
+                "À retenir :\n" +
+                "• L'appel réseau (HttpURLConnection, HttpClient) doit s'exécuter dans doInBackground()\n" +
+                "• setConnectTimeout() et setReadTimeout() → toujours définir pour éviter un blocage infini\n" +
+                "• Parser le JSON dans doInBackground() — retourner uniquement les objets métier\n" +
+                "• En cas d'erreur réseau : afficher un message sans crash — l'API peut être indisponible"
+        );
+        zoneNote.setEditable(false);
+        zoneNote.setBackground(Color.decode("#F5F5F5"));
+        zoneNote.setFont(new Font("Monospaced", Font.PLAIN, 11));
+
         fenetre.add(panelHaut, BorderLayout.NORTH);
         fenetre.add(split, BorderLayout.CENTER);
+        fenetre.add(zoneNote, BorderLayout.SOUTH);
         fenetre.setVisible(true);
     }
 

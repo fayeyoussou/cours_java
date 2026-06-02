@@ -88,9 +88,21 @@ public class KeyListenerExemple {
         panelChamps.add(new JLabel("KeyListener complet (3 méthodes) :"));
         panelChamps.add(champComplet);
 
+        JTextArea zoneNote = new JTextArea(
+                "À retenir :\n" +
+                "• keyPressed  → touche enfoncée (avant la frappe) — raccourcis et touches spéciales\n" +
+                "• keyTyped    → caractère imprimable produit — e.consume() pour bloquer la frappe\n" +
+                "• keyReleased → touche relâchée\n" +
+                "• Utiliser KeyAdapter pour n'implémenter que les méthodes utiles\n" +
+                "• Codes : VK_ENTER, VK_ESCAPE, VK_F1..F12 — modificateurs : isControlDown(), isShiftDown(), isAltDown()"
+        );
+        zoneNote.setEditable(false);
+        zoneNote.setBackground(Color.decode("#F5F5F5"));
+        zoneNote.setFont(new Font("Monospaced", Font.PLAIN, 11));
+
         fenetre.add(panelChamps, BorderLayout.NORTH);
         fenetre.add(new JScrollPane(zoneLog), BorderLayout.CENTER);
-        fenetre.add(new JLabel("  Codes utiles : VK_ENTER, VK_ESCAPE, VK_F1..F12, VK_UP/DOWN — modificateurs : isControlDown(), isShiftDown(), isAltDown()"), BorderLayout.SOUTH);
+        fenetre.add(zoneNote, BorderLayout.SOUTH);
         fenetre.setVisible(true);
     }
 }

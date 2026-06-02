@@ -104,9 +104,24 @@ public class DocumentListenerExemple {
         champRecherche.setPreferredSize(new Dimension(200, 26));
         panelRecherche.add(labelResultats);
 
+        JTextArea zoneNote = new JTextArea(
+                "À retenir :\n" +
+                "• 3 méthodes : insertUpdate (ajout), removeUpdate (suppression), changedUpdate (style — ignoré pour JTextField)\n" +
+                "• Capte toutes les modifications : frappe, copier-coller, setText(), undo/redo\n" +
+                "• Préférer DocumentListener à KeyListener pour suivre le contenu d'un champ\n" +
+                "• RowFilter.regexFilter(\"(?i)...\") filtre les lignes visibles sans modifier le modèle\n" +
+                "• Pattern.quote(motif) échappe les caractères spéciaux regex dans la saisie utilisateur"
+        );
+        zoneNote.setEditable(false);
+        zoneNote.setBackground(Color.decode("#F5F5F5"));
+        zoneNote.setFont(new Font("Monospaced", Font.PLAIN, 11));
+
+        JSplitPane split = new JSplitPane(JSplitPane.VERTICAL_SPLIT, new JScrollPane(table), panelCompteur);
+        split.setResizeWeight(0.6);
+
         fenetre.add(panelRecherche, BorderLayout.NORTH);
-        fenetre.add(new JScrollPane(table), BorderLayout.CENTER);
-        fenetre.add(panelCompteur, BorderLayout.SOUTH);
+        fenetre.add(split, BorderLayout.CENTER);
+        fenetre.add(zoneNote, BorderLayout.SOUTH);
         fenetre.setVisible(true);
     }
 }

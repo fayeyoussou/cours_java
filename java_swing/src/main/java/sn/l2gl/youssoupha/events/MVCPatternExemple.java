@@ -124,7 +124,19 @@ public class MVCPatternExemple {
             EtudiantVue    vue    = new EtudiantVue();
             new EtudiantControleur(modele, vue);
 
-            fenetre.add(vue);
+            JTextArea zoneNote = new JTextArea(
+                    "À retenir :\n" +
+                    "• Modèle     : données pures, sans dépendance Swing — testable indépendamment\n" +
+                    "• Vue        : composants Swing uniquement, aucune logique métier\n" +
+                    "• Contrôleur : branche les listeners, appelle le modèle, ordonne le rafraîchissement de la vue\n" +
+                    "• Ordre d'instanciation : Modèle → Vue → Contrôleur (le contrôleur dépend des deux autres)"
+            );
+            zoneNote.setEditable(false);
+            zoneNote.setBackground(Color.decode("#F5F5F5"));
+            zoneNote.setFont(new Font("Monospaced", Font.PLAIN, 11));
+
+            fenetre.add(vue, BorderLayout.CENTER);
+            fenetre.add(zoneNote, BorderLayout.SOUTH);
             fenetre.setVisible(true);
         });
     }

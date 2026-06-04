@@ -1,0 +1,10 @@
+/Users/youtech/Desktop/projects/cours_java/jdbc_java/src/main/java/sn/l2g2/faye/App.java
+/Users/youtech/Desktop/projects/cours_java/jdbc_java/src/main/java/sn/l2g2/faye/jdbc/ConnexionTest.java
+/Users/youtech/Desktop/projects/cours_java/jdbc_java/src/main/java/sn/l2g2/faye/jdbc/HibernateUtil.java
+/Users/youtech/Desktop/projects/cours_java/jdbc_java/src/main/java/sn/l2g2/faye/jdbc/dao/EtudiantDao.java
+/Users/youtech/Desktop/projects/cours_java/jdbc_java/src/main/java/sn/l2g2/faye/jdbc/dao/EtudiantDaoHibernate.java
+/Users/youtech/Desktop/projects/cours_java/jdbc_java/src/main/java/sn/l2g2/faye/jdbc/exception/EtudiantException.java
+/Users/youtech/Desktop/projects/cours_java/jdbc_java/src/main/java/sn/l2g2/faye/jdbc/exception/HibernateConfigException.java
+/Users/youtech/Desktop/projects/cours_java/jdbc_java/src/main/java/sn/l2g2/faye/jdbc/model/Classe.java
+/Users/youtech/Desktop/projects/cours_java/jdbc_java/src/main/java/sn/l2g2/faye/jdbc/model/Etudiant.java
+/Users/youtech/Desktop/projects/cours_java/jdbc_java/src/main/java/sn/l2g2/faye/jdbc/model/EtudiantHibernate.java

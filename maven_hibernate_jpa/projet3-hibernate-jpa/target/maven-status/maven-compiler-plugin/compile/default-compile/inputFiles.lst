@@ -1,0 +1,7 @@
+/Users/youtech/Desktop/projects/cours_java/maven_hibernate_jpa/projet3-hibernate-jpa/src/main/java/sn/cours/Main.java
+/Users/youtech/Desktop/projects/cours_java/maven_hibernate_jpa/projet3-hibernate-jpa/src/main/java/sn/cours/model/Categorie.java
+/Users/youtech/Desktop/projects/cours_java/maven_hibernate_jpa/projet3-hibernate-jpa/src/main/java/sn/cours/model/Produit.java
+/Users/youtech/Desktop/projects/cours_java/maven_hibernate_jpa/projet3-hibernate-jpa/src/main/java/sn/cours/persistence/JPAUtil.java
+/Users/youtech/Desktop/projects/cours_java/maven_hibernate_jpa/projet3-hibernate-jpa/src/main/java/sn/cours/service/CrudService.java
+/Users/youtech/Desktop/projects/cours_java/maven_hibernate_jpa/projet3-hibernate-jpa/src/main/java/sn/cours/service/impl/CategorieServiceJPA.java
+/Users/youtech/Desktop/projects/cours_java/maven_hibernate_jpa/projet3-hibernate-jpa/src/main/java/sn/cours/service/impl/ProduitServiceJPA.java

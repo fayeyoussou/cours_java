@@ -85,7 +85,8 @@ public class ItemListenerExemple {
             case "Sénégal" -> "Dakar, Thiès, Saint-Louis";
             case "Mali" -> "Bamako, Sikasso, Mopti";
             case "Côte d'Ivoire" -> "Abidjan, Bouaké, Yamoussoukro";
-            default -> "—";
+            case "Guinée" -> "Conakry, Pitha , Labe , Yomou";
+            default -> "";
         };
     }
 }

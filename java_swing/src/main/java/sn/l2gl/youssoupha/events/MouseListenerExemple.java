@@ -55,7 +55,8 @@ public class MouseListenerExemple {
             public void mouseClicked(MouseEvent e) {
                 // getClickCount() : nombre de clics consécutifs rapides
                 if (e.getClickCount() == 2) {
-                    zoneLog.append("Double-clic à (" + e.getX() + ", " + e.getY() + ")\n");
+
+                    zoneLog.append("Double-clic à (" + e.getX() + ", " + e.getY() + ")\n , Moment :" );
                 }
                 // isRightMouseButton() : détecter le bouton droit pour le menu contextuel
                 if (SwingUtilities.isRightMouseButton(e)) {
@@ -66,7 +67,7 @@ public class MouseListenerExemple {
             @Override
             public void mousePressed(MouseEvent e) {
                 // getButton() : 1 = gauche, 2 = molette, 3 = droit
-                zoneLog.append("Bouton " + e.getButton() + " pressé à (" + e.getX() + ", " + e.getY() + ")\n");
+                zoneLog.append("Bouton " + e.getButton() + " pressé à (" + e.getX() + ", " + e.getY() + ")\n" +  "Moment :"+e.getWhen());
             }
         });
 

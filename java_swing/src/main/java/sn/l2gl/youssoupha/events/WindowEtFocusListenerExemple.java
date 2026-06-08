@@ -42,7 +42,9 @@ public class WindowEtFocusListenerExemple {
             @Override
             public void focusGained(FocusEvent e) {
                 // focusGained : le composant vient de recevoir le focus
-                champNom.setBackground(Color.decode("#E8F4FD"));
+                champNom.setBackground(Color.decode(
+                        "#E8F4FD")
+                );
             }
             @Override
             public void focusLost(FocusEvent e) {
@@ -90,7 +92,7 @@ public class WindowEtFocusListenerExemple {
             @Override
             public void windowOpened(WindowEvent e) {
                 // windowOpened : déclenché une seule fois, à la première apparition de la fenêtre
-                champNom.requestFocusInWindow();
+//                champEmail.requestFocusInWindow();
             }
             @Override
             public void windowClosing(WindowEvent e) {

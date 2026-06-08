@@ -2,7 +2,6 @@ package sn.l2gl.youssoupha.dao;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import sn.l2gl.youssoupha.model.Vehicule;
 import sn.l2gl.youssoupha.util.HibernateUtil;
 
 import java.util.List;

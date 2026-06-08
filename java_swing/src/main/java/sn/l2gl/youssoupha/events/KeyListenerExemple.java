@@ -36,6 +36,7 @@ public class KeyListenerExemple {
             public void keyTyped(KeyEvent e) {
                 // keyTyped : déclenché quand un caractère imprimable est produit
                 // e.consume() annule le caractère — il n'apparaîtra pas dans le champ
+                System.out.println(e.getKeyChar());
                 if (!Character.isDigit(e.getKeyChar())) e.consume();
             }
         });

@@ -45,6 +45,11 @@ public class ActionListenerExemple {
                 zoneLog.append("[" + source + "] nom saisi : " + champNom.getText() + "\n");
             }
         });
+        boutonValider.addActionListener(e -> {
+            // e.getSource() retourne le composant qui a déclenché l'événement
+            String source = ((JButton) e.getSource()).getText();
+            zoneLog.append("[" + source + "] nom saisi : " + champNom.getText() + "\n");
+        });
 
         // Lambda — syntaxe concise Java 8+, identique à la classe anonyme ci-dessus
         // Possible car ActionListener n'a qu'UNE seule méthode abstraite (interface fonctionnelle)

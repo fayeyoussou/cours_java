@@ -38,6 +38,7 @@ public class ChangeListenerExemple {
         barreVolume.setStringPainted(true);
 
         sliderVolume.addChangeListener(e -> {
+
             int v = sliderVolume.getValue();
             barreVolume.setValue(v);
             // getValueIsAdjusting() = true pendant le glissement, false quand l'utilisateur lâche

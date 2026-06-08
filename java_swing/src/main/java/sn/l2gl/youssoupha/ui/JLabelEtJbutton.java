@@ -38,6 +38,6 @@ public class JLabelEtJbutton {
         fenetre.add(labelIcone);
         fenetre.add(labelCouleur);
 
-        fenetre.setVisible(true);
+//        fenetre.setVisible(true);
     }
 }

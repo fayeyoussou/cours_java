@@ -14,9 +14,14 @@ public class JPanelSimple {
         fenetre.setLocationRelativeTo(null);
         fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         fenetre.setLayout(new GridLayout(3, 3));
+        JLabel label = new JLabel("Hello World !!! ", SwingConstants.CENTER);
+        JLabel label2 = new JLabel("Hello World !!! ", SwingConstants.CENTER);
+
+        JLabel label3 = new JLabel("Hello World !!! ", SwingConstants.CENTER);
 
         JPanel panel1 = new JPanel();
         panel1.setBackground(Color.BLUE);
+        panel1.add(label);
 
         JPanel panel2 = new JPanel();
         panel2.setBackground(Color.RED);

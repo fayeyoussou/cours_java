@@ -22,7 +22,7 @@ public class ExempleBorderLayout {
         panel.add(creerZone("NORTH", Color.cyan), BorderLayout.NORTH);
         panel.add(creerZone("SOUTH", Color.BLUE), BorderLayout.SOUTH);
         panel.add(creerZone("WEST", Color.GREEN), BorderLayout.WEST);
-        panel.add(creerZone("EAST", Color.ORANGE), BorderLayout.EAST);
+//        panel.add(creerZone("EAST", Color.ORANGE), BorderLayout.EAST);
         panel.add(creerZone("CENTER", Color.PINK), BorderLayout.CENTER);
         return panel;
     }

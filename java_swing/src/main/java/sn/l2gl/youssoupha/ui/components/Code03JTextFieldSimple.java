@@ -27,10 +27,18 @@ public class Code03JTextFieldSimple {
 
         bouton.addActionListener(e -> {
             String nom = champNom.getText().trim();
-            JOptionPane.showMessageDialog(
-                    fenetre,
-                    "Bonjour, " + nom + ", Bienvenue dans Swing UI"
-            );
+            if (nom.length() < 3) {
+                JOptionPane.showMessageDialog(
+                        fenetre,
+                        "Taille insuffisante"
+                );
+            } else {
+                JOptionPane.showMessageDialog(
+                        fenetre,
+                        "Bonjour, " + nom + ", Bienvenue dans Swing UI"
+                );
+            }
+
         });
 
         fenetre.add(label);

@@ -18,7 +18,7 @@ public class ExempleFlowLayout {
     }
 
     public static JPanel creerPanel() {
-        JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
+        JPanel panel = new JPanel(new FlowLayout());
         panel.add(creerPetitPanel("1", Color.RED));
         panel.add(creerPetitPanel("2", Color.BLUE));
         panel.add(creerPetitPanel("3", Color.GREEN));

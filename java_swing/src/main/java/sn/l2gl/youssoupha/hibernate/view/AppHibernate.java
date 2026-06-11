@@ -13,10 +13,13 @@ import java.awt.*;
  *
  * Pour chaque entité : on instancie la Vue (composants), puis le Contrôleur
  * (logique) — l'ordre Modèle → Vue → Contrôleur du pattern MVC.
+ *
+ * La navigation se fait « par page » : le menu « Affichage » remplace le contenu
+ * central de la fenêtre par la vue choisie (plus d'onglets).
  */
 public class AppHibernate {
 
-    // VUES (placées dans les onglets)
+    // VUES (affichées une à la fois comme page centrale)
     private final CategorieView categorieView = new CategorieView();
     private final ProduitView produitView = new ProduitView();
     private final VenteView venteView = new VenteView();
@@ -26,24 +29,16 @@ public class AppHibernate {
     private final ProduitController produitController = new ProduitController(produitView);
     private final VenteController venteController = new VenteController(venteView);
 
-    private final JTabbedPane onglets = new JTabbedPane();
-
     public AppHibernate() {
         JFrame fenetre = new JFrame("Gestion de stock — Hibernate + Swing (MVC)");
         fenetre.setSize(900, 600);
         fenetre.setLocationRelativeTo(null);
         fenetre.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); // fermeture gérée manuellement
 
-        onglets.addTab("Catégories", categorieView);
-        onglets.addTab("Produits", produitView);
-        onglets.addTab("Ventes", venteView);
-
-        // Changer d'onglet rafraîchit ses données et listes de référence
-        // (une catégorie ajoutée doit apparaître dans la combo des produits, etc.)
-        onglets.addChangeListener(e -> rafraichirOngletActif());
-
         fenetre.setJMenuBar(construireMenu(fenetre));
-        fenetre.add(onglets, BorderLayout.CENTER);
+
+        // Page d'accueil : la vue des catégories.
+        afficherCategories(fenetre);
         fenetre.setVisible(true);
 
         fenetre.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -70,11 +65,10 @@ public class AppHibernate {
         JMenuItem itemCategories = new JMenuItem("Catégories");
         JMenuItem itemProduits = new JMenuItem("Produits");
         JMenuItem itemVentes = new JMenuItem("Ventes");
-        // Chaque item réaffiche les onglets (au cas où la documentation est ouverte)
-        // puis sélectionne l'onglet voulu.
-        itemCategories.addActionListener(e -> { afficherOnglets(fenetre); onglets.setSelectedIndex(0); });
-        itemProduits.addActionListener(e -> { afficherOnglets(fenetre); onglets.setSelectedIndex(1); });
-        itemVentes.addActionListener(e -> { afficherOnglets(fenetre); onglets.setSelectedIndex(2); });
+        // Chaque item remplace la page centrale par la vue correspondante.
+        itemCategories.addActionListener(e -> afficherCategories(fenetre));
+        itemProduits.addActionListener(e -> afficherProduits(fenetre));
+        itemVentes.addActionListener(e -> afficherVentes(fenetre));
         menuAffichage.add(itemCategories);
         menuAffichage.add(itemProduits);
         menuAffichage.add(itemVentes);
@@ -93,17 +87,36 @@ public class AppHibernate {
         return barre;
     }
 
+    // ----- Pages « entités » -------------------------------------------------
+
+    private void afficherCategories(JFrame fenetre) {
+        categorieController.rafraichir();
+        afficherPage(fenetre, categorieView);
+    }
+
+    private void afficherProduits(JFrame fenetre) {
+        produitController.rafraichir();
+        afficherPage(fenetre, produitView);
+    }
+
+    private void afficherVentes(JFrame fenetre) {
+        venteController.rafraichir();
+        afficherPage(fenetre, venteView);
+    }
+
+    // ----- Pages « Aide » ----------------------------------------------------
+
     /**
-     * Remplace le contenu central de la fenêtre (les onglets) par un élément
-     * texte affichant la documentation de l'application.
+     * Remplace la page centrale par un élément texte affichant la documentation
+     * de l'application.
      */
     private void afficherDocumentation(JFrame fenetre) {
         String texte =
                 "DOCUMENTATION — Gestion de stock\n" +
                 "================================\n\n" +
                 "Application de démonstration Hibernate (JPA) + Java Swing, architecture MVC.\n\n" +
-                "ONGLETS\n" +
-                "-------\n" +
+                "PAGES\n" +
+                "-----\n" +
                 "• Catégories : créer, modifier et supprimer les catégories de produits.\n" +
                 "• Produits   : gérer les produits, chacun rattaché à une catégorie.\n" +
                 "• Ventes     : enregistrer les ventes, associées à un ou plusieurs produits.\n\n" +
@@ -114,15 +127,15 @@ public class AppHibernate {
                 "MENUS\n" +
                 "-----\n" +
                 "• Fichier   : rafraîchir toutes les données ou quitter l'application.\n" +
-                "• Affichage : revenir aux onglets et sélectionner Catégories / Produits / Ventes.\n" +
+                "• Affichage : changer de page — Catégories / Produits / Ventes.\n" +
                 "• Aide      : cette documentation et la boîte « À propos ».\n\n" +
-                "Astuce : utilisez le menu « Affichage » pour revenir aux onglets de saisie.";
+                "Astuce : utilisez le menu « Affichage » pour revenir aux pages de saisie.";
         afficherTexte(fenetre, texte);
     }
 
     /**
-     * Remplace le contenu central de la fenêtre par un élément texte présentant
-     * les informations « À propos » de l'application.
+     * Remplace la page centrale par un élément texte présentant les informations
+     * « À propos » de l'application.
      */
     private void afficherApropos(JFrame fenetre) {
         String texte =
@@ -133,11 +146,11 @@ public class AppHibernate {
                 "Entités : Catégorie, Produit, Vente\n" +
                 "• Produit → 1 Catégorie (ManyToOne)\n" +
                 "• Produit ↔ Ventes      (ManyToMany)\n\n" +
-                "Astuce : utilisez le menu « Affichage » pour revenir aux onglets de saisie.";
+                "Astuce : utilisez le menu « Affichage » pour revenir aux pages de saisie.";
         afficherTexte(fenetre, texte);
     }
 
-    /** Affiche un texte (lecture seule) comme contenu central de la fenêtre. */
+    /** Affiche un texte (lecture seule) comme page centrale de la fenêtre. */
     private void afficherTexte(JFrame fenetre, String texte) {
         JTextArea zoneTexte = new JTextArea(texte);
         zoneTexte.setEditable(false);
@@ -146,28 +159,15 @@ public class AppHibernate {
         zoneTexte.setMargin(new Insets(12, 12, 12, 12));
         zoneTexte.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 13));
         zoneTexte.setCaretPosition(0);
-
-        fenetre.getContentPane().removeAll();
-        fenetre.add(new JScrollPane(zoneTexte), BorderLayout.CENTER);
-        fenetre.revalidate();
-        fenetre.repaint();
+        afficherPage(fenetre, new JScrollPane(zoneTexte));
     }
 
-    /** Restaure les onglets comme contenu central de la fenêtre. */
-    private void afficherOnglets(JFrame fenetre) {
+    /** Remplace le contenu central de la fenêtre par le composant donné. */
+    private void afficherPage(JFrame fenetre, Component page) {
         fenetre.getContentPane().removeAll();
-        fenetre.add(onglets, BorderLayout.CENTER);
+        fenetre.add(page, BorderLayout.CENTER);
         fenetre.revalidate();
         fenetre.repaint();
-    }
-
-    private void rafraichirOngletActif() {
-        switch (onglets.getSelectedIndex()) {
-            case 0 -> categorieController.rafraichir();
-            case 1 -> produitController.rafraichir();
-            case 2 -> venteController.rafraichir();
-            default -> { /* rien */ }
-        }
     }
 
     private void rafraichirTout() {

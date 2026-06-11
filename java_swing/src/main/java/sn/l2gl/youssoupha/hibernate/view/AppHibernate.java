@@ -70,28 +70,95 @@ public class AppHibernate {
         JMenuItem itemCategories = new JMenuItem("Catégories");
         JMenuItem itemProduits = new JMenuItem("Produits");
         JMenuItem itemVentes = new JMenuItem("Ventes");
-        itemCategories.addActionListener(e -> onglets.setSelectedIndex(0));
-        itemProduits.addActionListener(e -> onglets.setSelectedIndex(1));
-        itemVentes.addActionListener(e -> onglets.setSelectedIndex(2));
+        // Chaque item réaffiche les onglets (au cas où la documentation est ouverte)
+        // puis sélectionne l'onglet voulu.
+        itemCategories.addActionListener(e -> { afficherOnglets(fenetre); onglets.setSelectedIndex(0); });
+        itemProduits.addActionListener(e -> { afficherOnglets(fenetre); onglets.setSelectedIndex(1); });
+        itemVentes.addActionListener(e -> { afficherOnglets(fenetre); onglets.setSelectedIndex(2); });
         menuAffichage.add(itemCategories);
         menuAffichage.add(itemProduits);
         menuAffichage.add(itemVentes);
 
         JMenu menuAide = new JMenu("Aide");
+        JMenuItem itemDocumentation = new JMenuItem("Documentation");
+        itemDocumentation.addActionListener(e -> afficherDocumentation(fenetre));
         JMenuItem itemApropos = new JMenuItem("À propos");
-        itemApropos.addActionListener(e -> JOptionPane.showMessageDialog(fenetre,
-                "Gestion de stock\n" +
-                        "Démonstration Hibernate (JPA) + Java Swing, architecture MVC.\n\n" +
-                        "Entités : Catégorie, Produit, Vente\n" +
-                        "• Produit → 1 Catégorie (ManyToOne)\n" +
-                        "• Produit ↔ Ventes (ManyToMany)",
-                "À propos", JOptionPane.INFORMATION_MESSAGE));
+        itemApropos.addActionListener(e -> afficherApropos(fenetre));
+        menuAide.add(itemDocumentation);
         menuAide.add(itemApropos);
 
         barre.add(menuFichier);
         barre.add(menuAffichage);
         barre.add(menuAide);
         return barre;
+    }
+
+    /**
+     * Remplace le contenu central de la fenêtre (les onglets) par un élément
+     * texte affichant la documentation de l'application.
+     */
+    private void afficherDocumentation(JFrame fenetre) {
+        String texte =
+                "DOCUMENTATION — Gestion de stock\n" +
+                "================================\n\n" +
+                "Application de démonstration Hibernate (JPA) + Java Swing, architecture MVC.\n\n" +
+                "ONGLETS\n" +
+                "-------\n" +
+                "• Catégories : créer, modifier et supprimer les catégories de produits.\n" +
+                "• Produits   : gérer les produits, chacun rattaché à une catégorie.\n" +
+                "• Ventes     : enregistrer les ventes, associées à un ou plusieurs produits.\n\n" +
+                "RELATIONS\n" +
+                "---------\n" +
+                "• Produit → 1 Catégorie (ManyToOne)\n" +
+                "• Produit ↔ Ventes      (ManyToMany)\n\n" +
+                "MENUS\n" +
+                "-----\n" +
+                "• Fichier   : rafraîchir toutes les données ou quitter l'application.\n" +
+                "• Affichage : revenir aux onglets et sélectionner Catégories / Produits / Ventes.\n" +
+                "• Aide      : cette documentation et la boîte « À propos ».\n\n" +
+                "Astuce : utilisez le menu « Affichage » pour revenir aux onglets de saisie.";
+        afficherTexte(fenetre, texte);
+    }
+
+    /**
+     * Remplace le contenu central de la fenêtre par un élément texte présentant
+     * les informations « À propos » de l'application.
+     */
+    private void afficherApropos(JFrame fenetre) {
+        String texte =
+                "À PROPOS\n" +
+                "========\n\n" +
+                "Gestion de stock\n" +
+                "Démonstration Hibernate (JPA) + Java Swing, architecture MVC.\n\n" +
+                "Entités : Catégorie, Produit, Vente\n" +
+                "• Produit → 1 Catégorie (ManyToOne)\n" +
+                "• Produit ↔ Ventes      (ManyToMany)\n\n" +
+                "Astuce : utilisez le menu « Affichage » pour revenir aux onglets de saisie.";
+        afficherTexte(fenetre, texte);
+    }
+
+    /** Affiche un texte (lecture seule) comme contenu central de la fenêtre. */
+    private void afficherTexte(JFrame fenetre, String texte) {
+        JTextArea zoneTexte = new JTextArea(texte);
+        zoneTexte.setEditable(false);
+        zoneTexte.setLineWrap(true);
+        zoneTexte.setWrapStyleWord(true);
+        zoneTexte.setMargin(new Insets(12, 12, 12, 12));
+        zoneTexte.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 13));
+        zoneTexte.setCaretPosition(0);
+
+        fenetre.getContentPane().removeAll();
+        fenetre.add(new JScrollPane(zoneTexte), BorderLayout.CENTER);
+        fenetre.revalidate();
+        fenetre.repaint();
+    }
+
+    /** Restaure les onglets comme contenu central de la fenêtre. */
+    private void afficherOnglets(JFrame fenetre) {
+        fenetre.getContentPane().removeAll();
+        fenetre.add(onglets, BorderLayout.CENTER);
+        fenetre.revalidate();
+        fenetre.repaint();
     }
 
     private void rafraichirOngletActif() {
